@@ -1,0 +1,51 @@
+<?php
+
+Route::group(['prefix' => 'stud'], function () {
+    Route::get('/','ClientController@index' );
+    Route::get('/article/{article}','ClientController@viewArticle' );
+    Route::delete('/article/{article}','ClientController@deleteArticle' );
+    Route::get('/restore/{order}','ClientController@restoreArchived' );
+    Route::post('/redeem-bonus','ClientController@redeemPoints' );
+    Route::post('/files','ClientController@saveTempFiles' );
+    Route::get('/e-wallet','ClientController@eWallet' );
+    Route::post('/top-up','ClientController@prepareTopUp' );
+    Route::get('/top-up','ClientController@executeTopUp' );
+    Route::get('/unpaid','ClientController@unpaid' );
+    Route::get('/active','ClientController@active' );
+    Route::get('/revision','ClientController@revision' );
+    Route::get('/pending','ClientController@pending' );
+    Route::get('/completed','ClientController@completed' );
+    Route::get('/approved','ClientController@approved' );
+    Route::get('/archived','ClientController@archived' );
+    Route::any('/new','ClientController@newOrder' );
+    Route::any('/order/{order}','ClientController@order' );
+    Route::any('/order/{order}/edit','ClientController@edit' );
+    Route::get('/pay/{order}','ClientController@pay' );
+    Route::post('/pay/{order}','ClientController@payDirect' );
+    Route::patch('/pay/{order}','ClientController@redeemPay' );
+    Route::put('/pay/{order}','ClientController@chargeWallet' );
+    Route::get('/savepayment','ClientController@savePayment' );
+    Route::get('/cancelpayment','ClientController@cancelPayment' );
+    Route::get('preview','ClientController@preview');
+    Route::post('preview','ExternalController@preview');
+    Route::put('preview','ClientController@login');
+    Route::get('edit/{order}','ClientController@edit');
+    Route::get('checkout','ClientController@checkout');
+    Route::get('paylater','ClientController@payLater');
+    Route::get('pay-deposit','ClientController@payDeposit');
+    Route::any('approve/{order}','ClientController@approveOrder');
+    Route::any('dispute/{order}','ClientController@disputeOrder');
+    Route::get('disputes','ClientController@showDisputes');
+    Route::get('closed','ClientController@showClosedOrders');
+    Route::any('tip/{assign}','ClientController@tipWriter');
+    Route::get('success_tip','ClientController@tipSuccess');
+    Route::get('cancel_tip','ClientController@cancelTip');
+    Route::get('preferred_writer','ClientController@preferredWriter');
+    Route::post('add_pages/{order}','ClientController@addPages');
+    Route::post('add_instructions/{order}','ClientController@addInstructions');
+    Route::post('add_sources/{order}','ClientController@addSources');
+    Route::post('add_hours/{order}','ClientController@addHours');
+    Route::post('add_milestones/{order}','ClientController@addMilestone');
+    Route::delete('delete-order/{order}','ClientController@deleteOrder');
+
+});

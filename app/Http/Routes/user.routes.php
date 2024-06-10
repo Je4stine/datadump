@@ -1,0 +1,30 @@
+<?php
+Route::group(['prefix' => 'user'], function () {
+    Route::any('profile','UserController@profile');
+    Route::post('update/{user}','UserController@adminUpdate');
+    Route::get('view/{role}','UserController@users');
+    Route::get('view/{role}/{user}','UserController@viewSingle');
+    Route::put('view/{role}/{user}','UserController@addPoints');
+    Route::patch('view/{role}/{user}','UserController@topUpAccount');
+    Route::post('view/{role}/{user}','UserController@updateCategory');
+    Route::any('edit/{user}','UserController@edit');
+    Route::any('changerole/{user}','UserController@changeRole');
+    Route::any('login','UserController@login');
+    Route::any('add/{role}','UserController@addUser');
+    Route::get('{user}/orders','UserController@orders');
+    Route::get('{user}/add_trait','UserController@addTrait');
+    Route::get('{user}/payments','UserController@payments');
+    Route::get('{user}/edit_trait/{trait}','UserController@addTrait');
+    Route::post('{user}/add_trait','UserController@addTrait');
+    Route::any('register','UserController@register');
+    Route::any('complete_profile','UserController@setProfile');
+    Route::get('{user}/application_info','UserController@applicationInformation');
+    Route::get('/writer_applications','UserController@writerApplications');
+    Route::get('{user}/activate','UserController@activateWriter');
+    Route::any('{user}/suspend','UserController@suspend');
+    Route::get('suspended','UserController@suspended');
+    Route::post('payout','UserController@payout');
+    Route::get('delete/{user}','UserController@deleteUser');
+    Route::post('profile/phone','UserController@addPhone');
+    Route::delete('/profile/phone/{phone}','UserController@deletePhone');
+});
